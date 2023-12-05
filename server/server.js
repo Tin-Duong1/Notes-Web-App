@@ -10,3 +10,17 @@ app.listen(PORT, (error) => {
         console.log("Error occurred, server can't start", error); 
     } 
 ); 
+
+// Database connection make sure to close when it ends 
+const mysql = require('mysql');
+const connection = mysql.createConnection({
+  host: 'localhost',
+  user: 'yourUsername',
+  password: 'yourPassword',
+  database: 'yourDatabaseName'
+});
+
+connection.connect(error => {
+  if (error) throw error;
+  console.log("Successfully connected to the database.");
+});
