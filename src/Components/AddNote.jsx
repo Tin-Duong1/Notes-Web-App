@@ -1,15 +1,13 @@
-import { useState } from 'react'
-import './App.css'
+
 import { Button } from 'react-bootstrap'
 import { Breadcrumb } from 'react-bootstrap'
+import './Comp.css'
 
 
-function App() {
-  const [count, setCount] = useState(0)
-
+function AddNote() {
   return (
     <>
-    <div id="header"><h1>Welcome to the page! Taking a note?</h1>
+    <div id="header"><h1>Add Notes</h1>
       <Breadcrumb variant="contained" style={{float: 'left'}}>
         <Breadcrumb.Item variant="contained" href="#">Login</Breadcrumb.Item>
         <Breadcrumb.Item href="">Register</Breadcrumb.Item>
@@ -21,8 +19,22 @@ function App() {
 
     <br></br>
 
-      <div id="notes">
-        
+      <div class="center-container">
+        <form>
+            <label>
+                Title:
+            </label>
+            <br></br>
+            <input type="text"></input>
+            <br></br>
+            <label>
+                Message:
+            </label>
+            <br></br>
+            <textarea></textarea>
+            <br></br>
+            <Button variant="contained" className="" OnClick>Submit Note</Button>
+        </form>
         </div>
     </>
   )
@@ -30,4 +42,4 @@ function App() {
 
 
 
-export default App
+export default AddNote
