@@ -3,44 +3,36 @@ import './App.css'
 
 
 import {
-  createBrowserRouter,
-  RouterProvider,
+  BrowserRouter as Router, Route, Routes
 } from "react-router-dom"
 
 import AddNote from './Pages/AddNote';
 import Delete from './Pages/Delete';
 import Read from './Pages/Read';
-import Layout from './Components/Layout';
+import Login from './Pages/login';
+import Register from './Pages/register';
+
+import Header from './Components/Header';
 
 function App() {
   
-
-  const router = createBrowserRouter([
-    {
-      element: <Layout />,
-      children: [
-
-        {
-          path: "/",
-          element: <Read />,
-        },
-        // other pages....
-        {
-          path: "/write",
-          element: <AddNote />,
-        },
-        {
-          path: "/delete",
-          element: <Delete />,
-        },
-
-      ],
-    },
-    
-  ])
-
   return (
-    <RouterProvider router = {router} />
+    <Router>
+      <Header />
+      <div>
+      <Routes>
+        <Route exact path="/" element={
+          <>
+          <Read />
+          </>
+        }></Route>
+        <Route path='/delete' element={<Delete />}></Route>
+        <Route path='/write' element={<AddNote />}></Route>
+        <Route path='/login' element={<Login />}></Route>
+        <Route path='/register' element={<Register />}></Route>
+      </Routes>
+      </div>
+      </Router>
     
   )
 }
