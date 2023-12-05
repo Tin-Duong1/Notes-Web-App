@@ -3,26 +3,43 @@ import './App.css'
 import { Button } from 'react-bootstrap'
 import { Breadcrumb } from 'react-bootstrap'
 
+import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+import NavDropdown from 'react-bootstrap/NavDropdown';
+
 
 function App() {
   const [count, setCount] = useState(0)
 
+
   return (
     <>
-    <div id="header"><h1>Welcome to the page! Taking a note?</h1>
-      <Breadcrumb variant="contained" style={{float: 'left'}}>
-        <Breadcrumb.Item variant="contained" href="#">Login</Breadcrumb.Item>
-        <Breadcrumb.Item href="">Register</Breadcrumb.Item>
-      </Breadcrumb>
-      <Button variant="contained" style={{float: 'right'}} className="AddNote" href="AddPage.html">Add Note</Button>
-      <Button variant="contained" style={{float: 'right'}} className="DeleteNote" href="DeletePage.html">Delete Note</Button>
-      <Button variant="contained" style={{float: 'right'}} className="ReadNote" href="index.html">Read Notes</Button>
-      </div>
+    <Navbar expand="lg" className="bg-body-tertiary" data-bs-theme="dark">
+      
+        <Navbar.Brand href="index.html">Note Taking</Navbar.Brand>
+          <Nav className="me-auto">
+            <Nav.Link href="index.html">Read</Nav.Link>
+            <Nav.Link href="AddPage.html">Write</Nav.Link>
+            <Nav.Link href="DeletePage.html">Delete</Nav.Link>
+          </Nav>
+          <Nav>
+            <Nav.Link href="#home">Login</Nav.Link>
+            <Nav.Link href="#link">Register</Nav.Link>
+          </Nav>
+       
+    </Navbar>
+
+    
 
     <br></br>
 
-      <div id="notes">
-        
+    <h1>Note Title goes here</h1>
+    
+      <div className="center-container">
+      <p id="noteText">Large block of note</p>
+      <Button variant="outline-primary" className="ReadNote" >Previous Note</Button>
+      <Button variant="outline-primary" className="ReadNote" >Next Notes</Button>
         </div>
     </>
   )
