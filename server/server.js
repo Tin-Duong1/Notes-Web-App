@@ -11,15 +11,25 @@ app.listen(PORT, (error) => {
 ); 
 
 // Database connection make sure to close when it ends 
-const mysql = require('mysql');
-const connection = mysql.createConnection({
+const mysql = require('mysql2');
+const pool = mysql.createPool({
   host: 'localhost',
-  user: 'yourUsername',
-  password: 'yourPassword',
-  database: 'yourDatabaseName'
+  user: 'root',
+  password: 'password',
+  database: 'evandb'
 });
 
-connection.connect(error => {
+pool.query('SELECT * FROM evandb.table1', (err,res)=>{
+  if(err){
+    return console.log('Failed uhhh.');
+  }
+  else {
+    return console.log(res);
+  }
+});
+
+pool.getConnection((error, connection) => {
   if (error) throw error;
   console.log("Successfully connected to the database.");
+  connection.release();
 });
