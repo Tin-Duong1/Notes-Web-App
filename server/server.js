@@ -1,37 +1,33 @@
 const express = require('express');
-const app = express(); 
-const PORT = 4000; 
-
-app.listen(PORT, (error) => { 
-    if (!error) 
-        console.log("Server is Successfully Running, and App is listening on port " + PORT); 
-    else 
-        console.log("Error occurred, server can't start", error); 
-});
-
 const mysql = require('mysql2');
+
+const app = express();
+const PORT = 4000;
+
 const pool = mysql.createPool({
   host: 'localhost',
   user: 'root',
-  password: 'password',
-  database: 'evandb'
+  password: 'Password', 
+  database: 'Notes'     
 });
 
-pool.getConnection((error, connection) => {
-  if (error) {
-    console.error("Error connecting to the database", error);
-    return;
-  }
-
-  console.log("Successfully connected to the database.");
-
-  connection.query('SELECT * FROM evandb.table1', (err, res) => {
+app.get('/', (req, res) => {
+  pool.query('SELECT * FROM Notes', (err, results) => {
     if (err) {
-      console.error('Failed to execute query', err);
-    } else {
-      console.log(res);
+      console.error('Database error:', err);
+      return res.status(500).send('Error fetching notes');
     }
-  });
 
-  connection.release();
+    const notesHtml = results.map(note => `<p><b>${note.title}</b>: ${note.content}</p>`).join('');
+    res.send(notesHtml);
+  });
 });
+
+app.listen(PORT, (error) => {
+  if (!error) {
+    console.log("Server is Successfully Running, and App is listening on port " + PORT);
+  } else {
+    console.error("Error occurred, server can't start", error);
+  }
+});
+
