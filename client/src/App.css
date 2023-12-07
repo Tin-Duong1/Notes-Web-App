@@ -20,7 +20,7 @@
 }
 
 .center-container {
-  height: 200px; /* 100% viewport height */
+  height: 200px;
   display: block;
   align-items: center;
   justify-content: center;
