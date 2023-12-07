@@ -1,23 +1,24 @@
-import React, { useState, useEffect } from 'react';
+import React, {useState, useEffect} from 'react';
+import {useParams} from 'react-router-dom';
 import './EditNotes.css';
 
-function EditNotes({ noteId }) {
-  const [note, setNote] = useState({ title: '', content: '' });
+function EditNotes() {
+    const { noteId } = useParams();
+    const [note, setNote] = useState({ title: '', content: '' });
+    useEffect(() => {
+        fetch(`http://localhost:4000/notes/${noteId}`)
+        .then(response => response.json())
+        .then(data => setNote(data))
+        .catch(error => console.error('Error fetching note:', error));
+ }, [noteId]);
 
-  useEffect(() => {
-    fetch(`http://localhost:4000/notes/${noteId}`)
-      .then(response => response.json())
-      .then(data => setNote(data))
-      .catch(error => console.error('Error fetching note:', error));
-  }, [noteId]);
-
-  const handleUpdate = () => {
-    fetch(`http://localhost:4000/notes/${noteId}`, {
-      method: 'PUT',
-      headers: {
-        'Content-Type': 'application/json',
+    const handleUpdate = () => {
+        fetch(`http://localhost:4000/notes/${noteId}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
       },
-      body: JSON.stringify(note)
+        body: JSON.stringify(note)
     })
     .then(response => response.json())
     .then(data => {
@@ -28,16 +29,16 @@ function EditNotes({ noteId }) {
     });
   };
 
-  const handleDelete = () => {
-    fetch(`http://localhost:4000/notes/${noteId}`, {
-      method: 'DELETE'
-    })
+    const handleDelete = () => {
+        fetch(`http://localhost:4000/notes/${noteId}`, {
+        method: 'DELETE'
+        })
     .then(response => response.json())
     .then(data => {
-      console.log('Note deleted:', data);
+        console.log('Note deleted:', data);
     })
     .catch(error => {
-      console.error('Error deleting note:', error);
+        console.error('Error deleting note:', error);
     });
   };
 
