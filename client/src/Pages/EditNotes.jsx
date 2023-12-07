@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import './EditNote.css';
+import './EditNotes.css';
 
-function EditNotePage({ noteId }) {
+function EditNotes({ noteId }) {
   const [note, setNote] = useState({ title: '', content: '' });
 
   useEffect(() => {
@@ -40,8 +40,6 @@ function EditNotePage({ noteId }) {
       console.error('Error deleting note:', error);
     });
   };
-
-  if (!note) return <div>Loading...</div>;
 
   return (
     <div className="edit-note-page">

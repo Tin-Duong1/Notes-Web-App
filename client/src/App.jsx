@@ -2,10 +2,10 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import './App.css';
 
-import NoteListPage from './Pages/NoteListPage';
-import AddNotePage from './Pages/AddNotePage';
-import EditNotePage from './Pages/EditNotePage';
-import Header from './Components/Header';
+import NotesList from './Pages/NotesList.jsx';
+import AddNotes from './Pages/AddNotes.jsx';
+import EditNotes from './Pages/EditNotes.jsx';
+import Header from './Components/Header.jsx';
 
 function App() {
   return (
@@ -13,9 +13,9 @@ function App() {
       <Header />
       <div>
         <Routes>
-          <Route exact path="/" element={<NoteListPage />} />
-          <Route path="/write" element={<AddNotePage />} />
-          <Route path="/edit/:noteId" element={<EditNotePage />} />
+          <Route exact path="/" element={<NotesList />} />
+          <Route path="/write" element={<AddNotes />} />
+          <Route path="/edit/:noteId" element={<EditNotes />} />
         </Routes>
       </div>
     </Router>

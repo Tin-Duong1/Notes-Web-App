@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import './AddNote.css';
+import './AddNotes.css';
 
-function AddNotePage() {
+function AddNotes() {
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
 

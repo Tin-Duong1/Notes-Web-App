@@ -3,17 +3,16 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 
 
-
 function Header() {
   return (
     <>
     <Navbar expand="xxl" className="bg-body-tertiary" data-bs-theme="dark" >
       
-      <Navbar.Brand href="/">Note Taking</Navbar.Brand>
+      <Navbar.Brand href="/">Notes =D</Navbar.Brand>
         <Nav className="me-auto">
           <Nav.Link href="/">Read</Nav.Link>
           <Nav.Link href="/write">Write</Nav.Link>
-          <Nav.Link href="/delete">Delete</Nav.Link>
+          <Nav.Link href="/edit">Edit</Nav.Link>
         </Nav>
         <Nav>
           <Nav.Link href="/login">Login</Nav.Link>

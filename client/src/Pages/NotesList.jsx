@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import NoteItem from './NoteItem';
-import './NoteList.css';
+import './NotesList.css';
 
-function NoteListPage() {
+function NotesList() {
   const [notes, setNotes] = useState([]);
 
   useEffect(() => {
@@ -22,5 +22,5 @@ function NoteListPage() {
   );
 }
 
-export default NoteListPage;
+export default NotesList;
 
