@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './EditNotePage.css';
+import './EditNote.css';
 
 function EditNotePage({ noteId }) {
   const [note, setNote] = useState({ title: '', content: '' });

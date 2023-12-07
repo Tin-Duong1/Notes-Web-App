@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import NoteItem from './NoteItem';
-import './NoteListPage.css';
+import './NoteList.css';
 
 function NoteListPage() {
   const [notes, setNotes] = useState([]);

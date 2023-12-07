@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './AddNotePage.css';
+import './AddNote.css';
 
 function AddNotePage() {
   const [title, setTitle] = useState('');
@@ -7,7 +7,6 @@ function AddNotePage() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
     fetch('http://localhost:4000/notes', {
       method: 'POST',
       headers: {
@@ -20,7 +19,6 @@ function AddNotePage() {
       console.log('Note added:', data);
       setTitle('');
       setContent('');
-      // Optionally redirect or update UI
     })
     .catch(error => {
       console.error('Error adding note:', error);
