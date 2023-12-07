@@ -22,7 +22,7 @@ app.post('/notes', (req, res) => {
   pool.query('INSERT INTO notes (title, content) VALUES (?, ?)', [title, content], (error, results) => {
     if (error) {
       return res.status(500).json({ error });
-    }
+    } 
     res.status(201).json({ id: results.insertId });
   });
 });
