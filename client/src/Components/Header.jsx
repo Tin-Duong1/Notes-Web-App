@@ -12,10 +12,6 @@ function Header() {
           <Nav.Link href="/">Read</Nav.Link>
           <Nav.Link href="/write">Write</Nav.Link>
         </Nav>
-        <Nav>
-          <Nav.Link href="/login">Login</Nav.Link>
-          <Nav.Link href="/register">Register</Nav.Link>
-        </Nav>
   </Navbar>
     </>
   )
