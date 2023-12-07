@@ -12,6 +12,7 @@ function Delete() {
       <h1>Title of Note</h1>
 
       <div className="center-container">
+ <Button variant="outline-primary" className="ReadNote" OnClick>Previous Note</Button>
       <Button variant="outline-primary" className="ReadNote" OnClick>Next Note</Button>
       <Button variant="outline-primary" className="ReadNote" OnClick>Delete Current Note</Button>
         </div>
