@@ -16,7 +16,6 @@ const pool = mysql.createPool({
   database: 'Notes'
 });
 
-
 app.post('/notes', (req, res) => {
   const { title, content } = req.body;
   pool.query('INSERT INTO notes (title, content) VALUES (?, ?)', [title, content], (error, results) => {
@@ -71,7 +70,7 @@ app.listen(PORT, (error) => {
   if (!error) {
     console.log("Server is Successfully Running, and App is listening on port " + PORT);
   } else {
-    console.error("Error occurred, server can't start", error);
+    console.error("Error on Server", error);
   }
 });
 
