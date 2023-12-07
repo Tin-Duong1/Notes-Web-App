@@ -1,0 +1,16 @@
+.note-list-page {
+    padding: 20px;
+}
+  
+.notes-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+  }
+  
+.note-item {
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 8px;
+}
+  
