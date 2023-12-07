@@ -6,7 +6,6 @@ function Header() {
   return (
     <>
     <Navbar expand="xxl" className="bg-body-tertiary" data-bs-theme="dark" >
-      
       <Navbar.Brand href="/">Notes</Navbar.Brand>
         <Nav className="me-auto">
           <Nav.Link href="/">Read</Nav.Link>
