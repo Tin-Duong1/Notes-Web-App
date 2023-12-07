@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import './AddNotes.css';
+import Form from 'react-bootstrap/Form';
+import { Button } from 'react-bootstrap'
 
 function AddNotes() {
   const [title, setTitle] = useState('');
@@ -28,22 +30,15 @@ function AddNotes() {
   return (
     <div className="add-note-page">
       <h2>Add Note</h2>
-      <form onSubmit={handleSubmit} className="note-form">
-        <input
-          type="text"
-          value={title}
-          onChange={e => setTitle(e.target.value)}
-          placeholder="Title"
-          className="note-input"
-        />
-        <textarea
-          value={content}
-          onChange={e => setContent(e.target.value)}
-          placeholder="Content"
-          className="note-textarea"
-        />
-        <button type="submit" className="note-submit-btn">Add Note</button>
-      </form>
+      <Form onSubmit={handleSubmit} className="note-form">
+        <Form.Group className="mb-3">
+          <Form.Control size="lg" placeholder="Title" value={title} onChange={e => setTitle(e.target.value)}></Form.Control>
+        </Form.Group>
+        <Form.Group className="mb-3">
+          <Form.Control as="textarea" value={content} onChange={e => setContent(e.target.value)} placeholder='Content'></Form.Control>
+        </Form.Group>
+        <Button type="submit" className="note-submit-btn" variant="outline-dark" size="lg">Add Note</Button>
+      </Form>
     </div>
   );
 }

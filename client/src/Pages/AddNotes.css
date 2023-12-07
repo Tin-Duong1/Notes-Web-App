@@ -35,4 +35,6 @@
   .note-delete-btn:hover {
     background-color: #c82333;
   }
-  
+  .add-note-page{
+    padding: 20px;
+  }

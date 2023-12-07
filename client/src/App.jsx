@@ -11,6 +11,7 @@ function App() {
   return (
     <Router>
       <Header />
+      <br />
       <div>
         <Routes>
           <Route exact path="/" element={<NotesList />} />

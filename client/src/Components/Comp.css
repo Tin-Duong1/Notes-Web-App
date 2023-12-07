@@ -10,6 +10,7 @@
     height: 100px;
     color: white;
     top: 0px;
+    position: fixed;
   }
   
   #notes{
@@ -39,5 +40,11 @@
 }
 .second-heading {
   margin-top: 20px;
+}
+h3{
+  margin-left: 20px;
+}
+h5{
+  margin-left: 10px;
 }
 
